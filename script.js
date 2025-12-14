@@ -189,6 +189,7 @@ if (statsSection) {
 // --------------- End About Section Js ------------//
 
 
+
 // ---------------- Education Section Js ---------------// 
 
 // Intersection Observer for timeline animations
@@ -215,6 +216,7 @@ timelineItems.forEach(item => {
 });
 
 // ---------------- End Education Section Js---------------// 
+
 
 
 // ------------ Service Section Js ---------------// 
@@ -245,3 +247,58 @@ timelineItems.forEach(item => {
 // ------------ End Service Section Js --------------// 
 
 
+// ------------ Project Section Js ---------------// 
+
+ // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hide');
+                        setTimeout(() => {
+                            card.classList.add('show');
+                        }, 10);
+                    } else {
+                        card.classList.remove('show');
+                        setTimeout(() => {
+                            card.classList.add('hide');
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Intersection Observer for project cards
+        const observerOptionsProject = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const projectObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'scale(1)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptionsProject);
+
+        projectCards.forEach(card => {
+            projectObserver.observe(card);
+        });
+
+// ------------ End Project Section Js --------------// 
