@@ -221,84 +221,114 @@ timelineItems.forEach(item => {
 
 // ------------ Service Section Js ---------------// 
 
- // Intersection Observer for service cards
-        const observerOptionsService = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+// Intersection Observer for service cards
+const observerOptionsService = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
 
-        const serviceObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 150);
-                    serviceObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptionsService);
+const serviceObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 150);
+            serviceObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptionsService);
 
-        // Observe all service cards
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach(card => {
-            serviceObserver.observe(card);
-        });
+// Observe all service cards
+const serviceCards = document.querySelectorAll('.service-card');
+serviceCards.forEach(card => {
+    serviceObserver.observe(card);
+});
 
 // ------------ End Service Section Js --------------// 
 
 
 // ------------ Project Section Js ---------------// 
 
- // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
+// Filter functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
 
-                const filter = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    
-                    if (filter === 'all' || category === filter) {
-                        card.classList.remove('hide');
-                        setTimeout(() => {
-                            card.classList.add('show');
-                        }, 10);
-                    } else {
-                        card.classList.remove('show');
-                        setTimeout(() => {
-                            card.classList.add('hide');
-                        }, 300);
-                    }
-                });
-            });
-        });
-
-        // Intersection Observer for project cards
-        const observerOptionsProject = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const projectObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'scale(1)';
-                    }, index * 100);
-                }
-            });
-        }, observerOptionsProject);
+        const filter = btn.getAttribute('data-filter');
 
         projectCards.forEach(card => {
-            projectObserver.observe(card);
+            const category = card.getAttribute('data-category');
+
+            if (filter === 'all' || category === filter) {
+                card.classList.remove('hide');
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, 10);
+            } else {
+                card.classList.remove('show');
+                setTimeout(() => {
+                    card.classList.add('hide');
+                }, 300);
+            }
         });
+    });
+});
+
+// Intersection Observer for project cards
+const observerOptionsProject = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const projectObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'scale(1)';
+            }, index * 100);
+        }
+    });
+}, observerOptionsProject);
+
+projectCards.forEach(card => {
+    projectObserver.observe(card);
+});
 
 // ------------ End Project Section Js --------------// 
+
+
+// ------------------------------------------//
+// ---------- Form Submission Js -------------//
+// ------------------------------------------//
+
+// Form submission handler (you can add your own backend logic)
+document.querySelector('.form-button').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    if (name && email && subject && message) {
+        alert('Thank you for your message! I will get back to you soon.');
+        // Clear form
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('message').value = '';
+    } else {
+        alert('Please fill in all fields.');
+    }
+});
+
+// -------------------------------------//
+// ---- End Form Submission Js -------//
+// ----------------------------------// 
