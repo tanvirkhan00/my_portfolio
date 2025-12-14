@@ -122,5 +122,122 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// End of Typing Animation       
+// End of Typing Animation    
 
+
+//--------------- About Sections Js---------- //
+
+// Animate skill bars when section is in view
+const observerOptions = {
+    threshold: 0.3
+};
+
+const animateSkills = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const skillBars = entry.target.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const progress = bar.getAttribute('data-progress');
+                bar.style.width = progress + '%';
+            });
+            observer.unobserve(entry.target);
+        }
+    });
+};
+
+const skillObserver = new IntersectionObserver(animateSkills, observerOptions);
+const aboutSection = document.querySelector('.about-section');
+skillObserver.observe(aboutSection);
+
+// Animate counter numbers
+const animateCounter = (element) => {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+
+    const updateCounter = () => {
+        current += step;
+        if (current < target) {
+            element.textContent = Math.floor(current) + '+';
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target + '+';
+        }
+    };
+
+    updateCounter();
+};
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumbers = entry.target.querySelectorAll('.stat-number');
+            statNumbers.forEach(num => animateCounter(num));
+            counterObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+const statsSection = document.querySelector('.experience-stats');
+if (statsSection) {
+    counterObserver.observe(statsSection);
+}
+
+// --------------- End About Section Js ------------//
+
+
+// ---------------- Education Section Js ---------------// 
+
+// Intersection Observer for timeline animations
+// const observerOptions = {
+//     threshold: 0.2,
+//     rootMargin: '0px 0px -50px 0px'
+// };
+
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 200);
+            timelineObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// // Observe all timeline items
+const timelineItems = document.querySelectorAll('.timeline-item');
+timelineItems.forEach(item => {
+    timelineObserver.observe(item);
+});
+
+// ---------------- End Education Section Js---------------// 
+
+
+// ------------ Service Section Js ---------------// 
+
+ // Intersection Observer for service cards
+        // const observerOptions = {
+        //     threshold: 0.1,
+        //     rootMargin: '0px 0px -50px 0px'
+        // };
+
+        const serviceObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 150);
+                    serviceObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            serviceObserver.observe(card);
+        });
+
+// ------------ End Service Section Js --------------// 
