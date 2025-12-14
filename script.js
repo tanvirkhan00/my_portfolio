@@ -65,7 +65,9 @@ document.addEventListener('click', (e) => {
 //---- End Header Js -----//
 
 
-// Typing Animation
+
+// -----------Typing Animation --------------//
+
 const roles = [
     'Shopify Developer',
     'Wix Developer',
@@ -128,7 +130,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 //--------------- About Sections Js---------- //
 
 // Animate skill bars when section is in view
-const observerOptions = {
+const observerOptionsSkillBar = {
     threshold: 0.3
 };
 
@@ -145,7 +147,7 @@ const animateSkills = (entries, observer) => {
     });
 };
 
-const skillObserver = new IntersectionObserver(animateSkills, observerOptions);
+const skillObserver = new IntersectionObserver(animateSkills, observerOptionsSkillBar);
 const aboutSection = document.querySelector('.about-section');
 skillObserver.observe(aboutSection);
 
@@ -177,7 +179,7 @@ const counterObserver = new IntersectionObserver((entries) => {
             counterObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, observerOptionsSkillBar);
 
 const statsSection = document.querySelector('.experience-stats');
 if (statsSection) {
@@ -190,10 +192,10 @@ if (statsSection) {
 // ---------------- Education Section Js ---------------// 
 
 // Intersection Observer for timeline animations
-// const observerOptions = {
-//     threshold: 0.2,
-//     rootMargin: '0px 0px -50px 0px'
-// };
+const observerOptionsEducation = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+};
 
 const timelineObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
@@ -204,7 +206,7 @@ const timelineObserver = new IntersectionObserver((entries) => {
             timelineObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, observerOptionsEducation);
 
 // // Observe all timeline items
 const timelineItems = document.querySelectorAll('.timeline-item');
@@ -218,10 +220,10 @@ timelineItems.forEach(item => {
 // ------------ Service Section Js ---------------// 
 
  // Intersection Observer for service cards
-        // const observerOptions = {
-        //     threshold: 0.1,
-        //     rootMargin: '0px 0px -50px 0px'
-        // };
+        const observerOptionsService = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
         const serviceObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
@@ -232,7 +234,7 @@ timelineItems.forEach(item => {
                     serviceObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, observerOptionsService);
 
         // Observe all service cards
         const serviceCards = document.querySelectorAll('.service-card');
@@ -241,3 +243,5 @@ timelineItems.forEach(item => {
         });
 
 // ------------ End Service Section Js --------------// 
+
+
