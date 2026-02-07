@@ -9,6 +9,9 @@
   <!-- Fav Icon -->
   <link rel="shortcut icon" href="/Image/letter-t.png" type="image/x-icon" />
 
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <!-- Style Css Link -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -597,472 +600,475 @@
       </div>
     </div>
 
-    <!-- Projects Grid -->
+    <!-- Projects Carousel Container -->
     <div class="projects-container">
-      <div class="projects-grid" id="projectsGrid">
-        <!-- Shopify Project 1-->
-        <div class="project-card show" data-category="shopify">
-          <div class="project-image">
-            <img src="/Image/ornamets_cover.png" alt="Simone Prince">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://bysimoneprince.com/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
+      <!-- Swiper -->
+      <div class="swiper projectsSwiper">
+        <div class="swiper-wrapper" id="projectsGrid">
+          <!-- Shopify Project 1-->
+          <div class="swiper-slide project-card" data-category="shopify">
+            <div class="project-image">
+              <img src="/Image/ornamets_cover.png" alt="Simone Prince">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://bysimoneprince.com/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Shopify</span>
+              <h3 class="project-title">Simone Prince</h3>
+              <p class="project-description">
+                Full-featured eCommerce store built on Shopify with custom theme modifications and enhanced user
+                experience also integrate app for custom functions. It's a beautify ornaments store.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Shopify</span>
+                <span class="tech-tag">Liquid</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">App integration</span>
               </div>
             </div>
           </div>
-          <div class="project-info">
-            <span class="project-category">Shopify</span>
-            <h3 class="project-title">Simone Prince</h3>
-            <p class="project-description">
-              Full-featured eCommerce store built on Shopify with custom theme modifications and enhanced user
-              experience also integrate app for custom functions. It's a beautify ornaments store.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">Shopify</span>
-              <span class="tech-tag">Liquid</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">App integration</span>
+
+          <!-- Shopify Project 2-->
+          <div class="swiper-slide project-card" data-category="shopify">
+            <div class="project-image">
+              <img src="/Image/Cover1.png" alt="E-bike Horizon">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://ebikehorizon.com/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Shopify</span>
+              <h3 class="project-title">E-bike Horizon</h3>
+              <p class="project-description">
+                Modern eCommerce platform for electric bikes with custom product filters and checkout optimization.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Shopify</span>
+                <span class="tech-tag">Liquid</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shopify Project 3 -->
+          <div class="swiper-slide project-card" data-category="shopify">
+            <div class="project-image">
+              <img src="/Image/pushByGigi.png" alt="pushByGigi">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://www.poshbygigi.com/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Shopify</span>
+              <h3 class="project-title">Push BY Gigi</h3>
+              <p class="project-description">
+                Push BY Gigi is a unique women's fashion website built on Shopify using custom Liquid, offering stylish
+                and modern dresses with a focus on quality, elegance, and a seamless shopping experience.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Shopify</span>
+                <span class="tech-tag">Liquid Code</span>
+                <span class="tech-tag">Apps</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shopify Project 4 -->
+          <div class="swiper-slide project-card" data-category="shopify">
+            <div class="project-image">
+              <img src="/Image/kalandulaSteel.png" alt="kalandulaSteel">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://www.kalandulasteel.com/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Shopify</span>
+              <h3 class="project-title">Kalanda Steel</h3>
+              <p class="project-description">
+                Kalanda Steel is a professionally built website using custom Liquid, featuring multi-language and
+                multi-currency support, live chat integration, and dropshipping functionality, designed to effectively
+                showcase the brand and its products to a global audience.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Shopify</span>
+                <span class="tech-tag">Liquid Code</span>
+                <span class="tech-tag">Apps</span>
+                <span class="tech-tag">Dropshipping</span>
+                <span class="tech-tag">Multi-currency</span>
+                <span class="tech-tag">Multi-language</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shopify Project 5 -->
+          <div class="swiper-slide project-card" data-category="shopify">
+            <div class="project-image">
+              <img src="/Image/Blush & Babe.png" alt="blushAndBabe">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://www.blushandbabe.com/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Shopify</span>
+              <h3 class="project-title">Blush & Babe</h3>
+              <p class="project-description">
+                Blush and Babe is a stylish e-commerce fashion website offering a wide range of trendy women's clothing
+                and accessories with easy browsing and shopping experience, featuring dropshipped products and curated
+                collections.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Shopify</span>
+                <span class="tech-tag">Liquid Code</span>
+                <span class="tech-tag">Apps</span>
+                <span class="tech-tag">Dropshipping</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shopify Project 6 -->
+          <div class="swiper-slide project-card" data-category="shopify">
+            <div class="project-image">
+              <img src="/Image/Mathodology.png" alt="Mathodology">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://thinkmathematics.com/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Shopify</span>
+              <h3 class="project-title">Mathodology</h3>
+              <p class="project-description">
+                Think Mathematics is an educational website for kids, offering Singapore-style math programs and resources
+                that help build strong conceptual understanding and problem-solving skills.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Shopify</span>
+                <span class="tech-tag">Liquid Code</span>
+                <span class="tech-tag">Apps</span>
+                <span class="tech-tag">E-book</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wix Project 1 -->
+          <div class="swiper-slide project-card" data-category="wix">
+            <div class="project-image">
+              <img src="/Image/Listo.png" alt="Listo Works">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://www.listo.works/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">wix</span>
+              <h3 class="project-title">Listo Works</h3>
+              <p class="project-description">
+                Listo Works is a professional services website built on Wix, showcasing various business solutions and
+                services.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">wix</span>
+                <span class="tech-tag">Apps</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wix Project 2 -->
+          <div class="swiper-slide project-card" data-category="wix">
+            <div class="project-image">
+              <img src="/Image/yuriana.png" alt="yuriana">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://yuriana15.wixsite.com/yurianahome" class="project-link" target="_blank"
+                    title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">wix</span>
+              <h3 class="project-title">Yuriana Home</h3>
+              <p class="project-description">
+                Yuriana Home is a luxurious apartment booking website. It offers a seamless booking experience with
+                stunning visuals and detailed apartment information.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">wix</span>
+                <span class="tech-tag">booking function</span>
+                <span class="tech-tag">apartment booking</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wix Project 3 -->
+          <div class="swiper-slide project-card" data-category="wix">
+            <div class="project-image">
+              <img src="/Image/CrisTVentures.png" alt="CrisTVentures">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://www.cristventures.us/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">wix</span>
+              <h3 class="project-title">Cris T Ventures</h3>
+              <p class="project-description">
+                Cris T Ventures is an online business platform. This website build by custom Wix velo code to enhance user
+                experience. It's a beautiful candle store.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Wix</span>
+                <span class="tech-tag">Custom velo code</span>
+                <span class="tech-tag">E-commerece</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Code 1 -->
+          <div class="swiper-slide project-card" data-category="custom">
+            <div class="project-image">
+              <img src="/Image/krist e-commerce.png" alt="Krist Ecommerce">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://kristecommerce.netlify.app/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Custom Code</span>
+              <h3 class="project-title">Krist Ecommerce</h3>
+              <p class="project-description">
+                Full-featured E-commerce website built with React and modern web technologies. This website using free API
+                and manage login system with firebase authentication.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Api integrate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Code 2 -->
+          <div class="swiper-slide project-card" data-category="custom">
+            <div class="project-image">
+              <img src="/Image/eCommerce-Website-Features-1920-x-1080.jpg" alt="Exclusive Ecommerce">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://exclusive-ecommerce-project.netlify.app/" class="project-link" target="_blank"
+                    title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Custom Code</span>
+              <h3 class="project-title">Exclusive Ecommerce</h3>
+              <p class="project-description">
+                Full-featured eCommerce website built with React and modern web technologies.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Code 3 -->
+          <div class="swiper-slide project-card" data-category="custom">
+            <div class="project-image">
+              <img src="/Image/woody.jpg" alt="Woody Website">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://responsive-woddy-website.netlify.app" class="project-link" target="_blank"
+                    title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Custom Code</span>
+              <h3 class="project-title">Woody Website</h3>
+              <p class="project-description">
+                Responsive furniture website built with Tailwind CSS and modern design principles.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Code 4 -->
+          <div class="swiper-slide project-card" data-category="custom">
+            <div class="project-image">
+              <img src="/Image/small-house-design-ideas.jpg" alt="Interno Website">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://internohome.netlify.app/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Custom Code</span>
+              <h3 class="project-title">Interno Home</h3>
+              <p class="project-description">
+                Beautiful interior design website with smooth animations and responsive layout.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Code 5 -->
+          <div class="swiper-slide project-card" data-category="custom">
+            <div class="project-image">
+              <img src="/Image/yummyFastFoods.png" alt="Interno Website">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://yummyfastfoods.netlify.app/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Custom Code</span>
+              <h3 class="project-title">Delicious City</h3>
+              <p class="project-description">
+                Beautiful restaurant design website with smooth animations and responsive layout.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Code 6 -->
+          <div class="swiper-slide project-card" data-category="custom">
+            <div class="project-image">
+              <img src="/Image/yummyBurger.png" alt="Interno Website">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://yummysnacks.netlify.app/" class="project-link" target="_blank" title="View Live">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Custom Code</span>
+              <h3 class="project-title">Yummy Snacks</h3>
+              <p class="project-description">
+                Beautiful restaurant design website with smooth animations and responsive layout.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Shopify Project 2-->
-        <div class="project-card show" data-category="shopify">
-          <div class="project-image">
-            <img src="/Image/Cover1.png" alt="E-bike Horizon">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://ebikehorizon.com/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Shopify</span>
-            <h3 class="project-title">E-bike Horizon</h3>
-            <p class="project-description">
-              Modern eCommerce platform for electric bikes with custom product filters and checkout optimization.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">Shopify</span>
-              <span class="tech-tag">Liquid</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
 
-        <!-- Shopify Project 3 -->
-        <div class="project-card show" data-category="shopify">
-          <div class="project-image">
-            <img src="/Image/pushByGigi.png" alt="pushByGigi">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://www.poshbygigi.com/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Shopify</span>
-            <h3 class="project-title">Push BY Gigi</h3>
-            <p class="project-description">
-              Push BY Gigi is a unique women’s fashion website built on Shopify using custom Liquid, offering stylish
-              and modern dresses with a focus on quality, elegance, and a seamless shopping experience.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">Shopify</span>
-              <span class="tech-tag">Liquid Code</span>
-              <span class="tech-tag">Apps</span>
-            </div>
-          </div>
-        </div>
-        <!-- Shopify Project 4 -->
-        <div class="project-card show" data-category="shopify">
-          <div class="project-image">
-            <img src="/Image/kalandulaSteel.png" alt="kalandulaSteel">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://www.kalandulasteel.com/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Shopify</span>
-            <h3 class="project-title">Kalanda Steel</h3>
-            <p class="project-description">
-              Kalanda Steel is a professionally built website using custom Liquid, featuring multi-language and
-              multi-currency support, live chat integration, and dropshipping functionality, designed to effectively
-              showcase the brand and its products to a global audience.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">Shopify</span>
-              <span class="tech-tag">Liquid Code</span>
-              <span class="tech-tag">Apps</span>
-              <span class="tech-tag">Dropshipping</span>
-              <span class="tech-tag">Multi-currency</span>
-              <span class="tech-tag">Multi-language</span>
-            </div>
-          </div>
-        </div>
-        <!-- Shopify Project 5 -->
-        <div class="project-card show" data-category="shopify">
-          <div class="project-image">
-            <img src="/Image/Blush & Babe.png" alt="blushAndBabe">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://www.blushandbabe.com/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Shopify</span>
-            <h3 class="project-title">Blush & Babe</h3>
-            <p class="project-description">
-              Blush and Babe is a stylish e-commerce fashion website offering a wide range of trendy women’s clothing
-              and accessories with easy browsing and shopping experience, featuring dropshipped products and curated
-              collections.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">Shopify</span>
-              <span class="tech-tag">Liquid Code</span>
-              <span class="tech-tag">Apps</span>
-              <span class="tech-tag">Dropshipping</span>
-            </div>
-          </div>
-        </div>
-        <!-- Shopify Project 6 -->
-        <div class="project-card show" data-category="shopify">
-          <div class="project-image">
-            <img src="/Image/Mathodology.png" alt="Mathodology">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://thinkmathematics.com/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Shopify</span>
-            <h3 class="project-title">Mathodology</h3>
-            <p class="project-description">
-              Think Mathematics is an educational website for kids, offering Singapore-style math programs and resources
-              that help build strong conceptual understanding and problem-solving skills.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">Shopify</span>
-              <span class="tech-tag">Liquid Code</span>
-              <span class="tech-tag">Apps</span>
-              <span class="tech-tag">E-book</span>
-
-            </div>
-          </div>
-        </div>
-
-
-
-        <!-- Wix Project 1 -->
-        <div class="project-card show" data-category="wix">
-          <div class="project-image">
-            <img src="/Image/Listo.png" alt="Listo Works">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://www.listo.works/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">wix</span>
-            <h3 class="project-title">Listo Works</h3>
-            <p class="project-description">
-              Listo Works is a professional services website built on Wix, showcasing various business solutions and
-              services.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">wix</span>
-              <span class="tech-tag">Apps</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Wix Project 2 -->
-        <div class="project-card show" data-category="wix">
-          <div class="project-image">
-            <img src="/Image/yuriana.png" alt="yuriana">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://yuriana15.wixsite.com/yurianahome" class="project-link" target="_blank"
-                  title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">wix</span>
-            <h3 class="project-title">Yuriana Home</h3>
-            <p class="project-description">
-              Yuriana Home is a luxurious apartment booking website. It offers a seamless booking experience with
-              stunning visuals and detailed apartment information.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">wix</span>
-              <span class="tech-tag">booking function</span>
-              <span class="tech-tag">apartment booking</span>
-            </div>
-          </div>
-        </div>
-        <!-- Wix Project 3 -->
-        <div class="project-card show" data-category="wix">
-          <div class="project-image">
-            <img src="/Image/CrisTVentures.png" alt="CrisTVentures">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://www.cristventures.us/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">wix</span>
-            <h3 class="project-title">Cris T Ventures</h3>
-            <p class="project-description">
-              Cris T Ventures is an online business platform. This website build by custom Wix velo code to enhance user
-              experience. It's a beautiful candle store.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">Wix</span>
-              <span class="tech-tag">Custom velo code</span>
-              <span class="tech-tag">E-commerece</span>
-            </div>
-          </div>
-        </div>
-
-
-
-        <!-- Custom Code 1 -->
-        <div class="project-card show" data-category="custom">
-          <div class="project-image">
-            <img src="/Image/krist e-commerce.png" alt="Krist Ecommerce">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://kristecommerce.netlify.app/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Custom Code</span>
-            <h3 class="project-title">Krist Ecommerce</h3>
-            <p class="project-description">
-              Full-featured E-commerce website built with React and modern web technologies. This website using free API
-              and manage login system with firebase authentication.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">Firebase</span>
-              <span class="tech-tag">Api integrate</span>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- Custom Code 2 -->
-        <div class="project-card show" data-category="custom">
-          <div class="project-image">
-            <img src="/Image/eCommerce-Website-Features-1920-x-1080.jpg" alt="Exclusive Ecommerce">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://exclusive-ecommerce-project.netlify.app/" class="project-link" target="_blank"
-                  title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Custom Code</span>
-            <h3 class="project-title">Exclusive Ecommerce</h3>
-            <p class="project-description">
-              Full-featured eCommerce website built with React and modern web technologies.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Custom Code 3 -->
-        <div class="project-card show" data-category="custom">
-          <div class="project-image">
-            <img src="/Image/woody.jpg" alt="Woody Website">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://responsive-woddy-website.netlify.app" class="project-link" target="_blank"
-                  title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Custom Code</span>
-            <h3 class="project-title">Woody Website</h3>
-            <p class="project-description">
-              Responsive furniture website built with Tailwind CSS and modern design principles.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">Tailwind CSS</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Custom Code 4 -->
-        <div class="project-card show" data-category="custom">
-          <div class="project-image">
-            <img src="/Image/small-house-design-ideas.jpg" alt="Interno Website">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://internohome.netlify.app/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Custom Code</span>
-            <h3 class="project-title">Interno Home</h3>
-            <p class="project-description">
-              Beautiful interior design website with smooth animations and responsive layout.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">Tailwind CSS</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- Custom Code 5 -->
-        <div class="project-card show" data-category="custom">
-          <div class="project-image">
-            <img src="/Image/yummyFastFoods.png" alt="Interno Website">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://yummyfastfoods.netlify.app/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Custom Code</span>
-            <h3 class="project-title">Delicious City</h3>
-            <p class="project-description">
-              Beautiful restaurant design website with smooth animations and responsive layout.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- Custom Code 6 -->
-        <div class="project-card show" data-category="custom">
-          <div class="project-image">
-            <img src="/Image/yummyBurger.png" alt="Interno Website">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="https://yummysnacks.netlify.app/" class="project-link" target="_blank" title="View Live">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-category">Custom Code</span>
-            <h3 class="project-title">Yummy Snacks</h3>
-            <p class="project-description">
-              Beautiful restaurant design website with smooth animations and responsive layout.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">Tailwind CSS</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-
-
-
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -1271,7 +1277,8 @@
   <!-- Js file link -->
   <script src="/script.js"></script>
 
-  
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
 </body>

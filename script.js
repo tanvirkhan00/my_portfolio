@@ -224,7 +224,7 @@ timelineItems.forEach(item => {
 // Intersection Observer for service cards
 const observerOptionsService = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -50px 0px',
 };
 
 const serviceObserver = new IntersectionObserver((entries) => {
@@ -247,7 +247,85 @@ serviceCards.forEach(card => {
 // ------------ End Service Section Js --------------// 
 
 
-// ------------ Project Section Js ---------------// 
+// ------------ Project Section Js with Swiper Carousel ---------------// 
+
+// Initialize Swiper variable
+let projectsSwiper = null;
+
+// Function to initialize Swiper
+function initializeSwiper(slidesPerView) {
+    // Destroy existing Swiper instance if it exists
+    if (projectsSwiper !== null) {
+        projectsSwiper.destroy(true, true);
+    }
+
+    // Initialize new Swiper instance
+    projectsSwiper = new Swiper('.projectsSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        grabCursor: true,
+        centeredSlides: false,
+        
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+        },
+        
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        
+        // Autoplay settings
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        
+        // Responsive breakpoints
+        breakpoints: {
+            // when window width is >= 480px
+            480: {
+                slidesPerView: 1,
+                spaceBetween: 20
+            },
+            // when window width is >= 640px
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 25
+            },
+            // when window width is >= 968px
+            968: {
+                slidesPerView: slidesPerView >= 3 ? 3 : slidesPerView,
+                spaceBetween: 30
+            },
+            // when window width is >= 1200px
+            1200: {
+                slidesPerView: slidesPerView >= 3 ? 3 : slidesPerView,
+                spaceBetween: 35
+            }
+        },
+        
+        // Effects
+        effect: 'slide',
+        speed: 600,
+        
+        // Keyboard control
+        keyboard: {
+            enabled: true,
+        },
+        
+        // Mouse wheel
+        mousewheel: {
+            forceToAxis: true,
+        },
+    });
+}
 
 // Filter functionality
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -261,47 +339,75 @@ filterBtns.forEach(btn => {
         btn.classList.add('active');
 
         const filter = btn.getAttribute('data-filter');
+        let visibleCount = 0;
 
+        // Filter cards
         projectCards.forEach(card => {
             const category = card.getAttribute('data-category');
 
             if (filter === 'all' || category === filter) {
-                card.classList.remove('hide');
-                setTimeout(() => {
-                    card.classList.add('show');
-                }, 10);
+                card.style.display = 'flex';
+                visibleCount++;
             } else {
-                card.classList.remove('show');
-                setTimeout(() => {
-                    card.classList.add('hide');
-                }, 300);
+                card.style.display = 'none';
             }
         });
+
+        // Reinitialize Swiper with appropriate slides per view
+        // Only show carousel if more than 3 items
+        const slidesPerView = visibleCount > 3 ? 3 : visibleCount;
+        
+        // Small delay to ensure DOM updates
+        setTimeout(() => {
+            initializeSwiper(slidesPerView);
+        }, 50);
     });
 });
 
-// Intersection Observer for project cards
+// Initialize Swiper on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Count total visible cards
+    const totalCards = document.querySelectorAll('.project-card').length;
+    const slidesPerView = totalCards > 3 ? 3 : totalCards;
+    
+    initializeSwiper(slidesPerView);
+});
+
+// Optional: Reinitialize on window resize for better responsiveness
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (projectsSwiper !== null) {
+            projectsSwiper.update();
+        }
+    }, 250);
+});
+
+// Intersection Observer for fade-in animation on scroll
 const observerOptionsProject = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
 const projectObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'scale(1)';
-            }, index * 100);
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
     });
 }, observerOptionsProject);
 
+// Observe project cards for animation
 projectCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     projectObserver.observe(card);
 });
 
-// ------------ End Project Section Js --------------// 
+// ------------ End Project Section Js --------------//
 
 
 // ------------------------------------------//
