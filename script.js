@@ -253,7 +253,7 @@ serviceCards.forEach(card => {
 let projectsSwiper = null;
 
 // Function to initialize Swiper
-function initializeSwiper(slidesPerView) {
+function initializeSwiper() {
     // Destroy existing Swiper instance if it exists
     if (projectsSwiper !== null) {
         projectsSwiper.destroy(true, true);
@@ -301,12 +301,12 @@ function initializeSwiper(slidesPerView) {
             },
             // when window width is >= 968px
             968: {
-                slidesPerView: slidesPerView >= 3 ? 3 : slidesPerView,
+                slidesPerView: 3,
                 spaceBetween: 30
             },
             // when window width is >= 1200px
             1200: {
-                slidesPerView: slidesPerView >= 3 ? 3 : slidesPerView,
+                slidesPerView: 3,
                 spaceBetween: 35
             }
         },
@@ -339,38 +339,33 @@ filterBtns.forEach(btn => {
         btn.classList.add('active');
 
         const filter = btn.getAttribute('data-filter');
-        let visibleCount = 0;
 
-        // Filter cards
+        // Filter cards - Remove from DOM instead of hiding
         projectCards.forEach(card => {
             const category = card.getAttribute('data-category');
-
+            
             if (filter === 'all' || category === filter) {
-                card.style.display = 'flex';
-                visibleCount++;
+                // Show the card by adding it back to swiper-wrapper
+                if (!card.parentElement) {
+                    document.querySelector('.swiper-wrapper').appendChild(card);
+                }
+                card.classList.remove('hidden-slide');
             } else {
-                card.style.display = 'none';
+                // Hide the card by adding a class
+                card.classList.add('hidden-slide');
             }
         });
 
-        // Reinitialize Swiper with appropriate slides per view
-        // Only show carousel if more than 3 items
-        const slidesPerView = visibleCount > 3 ? 3 : visibleCount;
-        
-        // Small delay to ensure DOM updates
+        // Small delay to ensure DOM updates, then reinitialize
         setTimeout(() => {
-            initializeSwiper(slidesPerView);
-        }, 50);
+            initializeSwiper();
+        }, 100);
     });
 });
 
 // Initialize Swiper on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Count total visible cards
-    const totalCards = document.querySelectorAll('.project-card').length;
-    const slidesPerView = totalCards > 3 ? 3 : totalCards;
-    
-    initializeSwiper(slidesPerView);
+    initializeSwiper();
 });
 
 // Optional: Reinitialize on window resize for better responsiveness
