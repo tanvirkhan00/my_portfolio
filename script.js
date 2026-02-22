@@ -440,3 +440,18 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 // -------------------------------------//
 // ---- End Form Submission Js -------//
 // ----------------------------------// 
+
+
+const popup = document.getElementById("waPopup");
+const closeBtn = document.getElementById("waClose");
+
+// Show after 3 seconds
+setTimeout(() => {
+  popup.classList.add("wa-show");
+}, 3000);
+
+// Close button
+closeBtn.onclick = () => {
+  popup.classList.remove("wa-show");
+  popup.classList.add("wa-hide");
+};
