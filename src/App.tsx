@@ -10,6 +10,7 @@ import { ExperienceEducation } from './components/ExperienceEducation';
 import { SkillsSection } from './components/SkillsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { StickyActions } from './components/StickyActions';
 
 export default function App() {
   return (
@@ -49,6 +50,9 @@ export default function App() {
 
       {/* Editorial Footer */}
       <Footer />
+
+      {/* Sticky Floating Actions: Back to Top & WhatsApp */}
+      <StickyActions />
     </div>
   );
 }

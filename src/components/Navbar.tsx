@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileDown, Mail, Sparkles } from 'lucide-react';
+import { Menu, X, FileDown, Mail } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Navbar: React.FC = () => {
@@ -26,38 +26,33 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-neutral-950/85 backdrop-blur-xl border-b border-neutral-800/80 py-3 shadow-2xl shadow-black/60'
+          ? 'bg-[#08090d]/90 backdrop-blur-xl border-b border-neutral-800/80 py-3.5 shadow-2xl shadow-black/50'
           : 'bg-transparent py-5 border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Zone 1: Wordmark with glowing colorful badge */}
+        {/* Zone 1: Clean Personal Wordmark */}
         <a
           href="#home"
-          className="group flex items-center gap-3 text-base font-bold tracking-tight text-white focus:outline-none"
+          className="group flex items-center gap-3 text-base sm:text-lg font-bold tracking-tight text-white focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-fuchsia-500 p-0.5 shadow-md shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all group-hover:scale-105">
-            <div className="w-full h-full bg-neutral-950 rounded-[10px] flex items-center justify-center text-white font-mono text-xs font-extrabold group-hover:bg-transparent transition-colors">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-amber-400 p-0.5 shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-full h-full bg-[#08090d] rounded-[10px] flex items-center justify-center text-white font-mono text-xs font-black">
               TK
             </div>
           </div>
-          <div className="flex flex-col">
-            <span className="font-display tracking-tight text-white group-hover:text-amber-400 transition-colors leading-tight">
-              {PERSONAL_INFO.name}
-            </span>
-            <span className="text-[10px] text-cyan-400 font-mono font-medium">
-              Betopia Group
-            </span>
-          </div>
+          <span className="font-display tracking-tight text-white group-hover:text-amber-400 transition-colors">
+            {PERSONAL_INFO.name}
+          </span>
         </a>
 
         {/* Zone 2: Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-xs sm:text-sm font-medium text-neutral-300">
+        <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-xs sm:text-sm font-medium text-neutral-300">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="hover:text-amber-400 transition-colors relative py-1 focus:outline-none"
+              className="hover:text-amber-400 transition-colors py-1 relative"
             >
               {link.name}
             </a>
@@ -96,14 +91,14 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-neutral-950/95 border-b border-neutral-800 px-4 pt-3 pb-6 space-y-3 backdrop-blur-2xl">
+        <div className="md:hidden bg-[#08090d]/95 border-b border-neutral-800 px-4 pt-3 pb-6 space-y-3 backdrop-blur-2xl">
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3.5 py-2.5 text-sm font-medium text-neutral-200 hover:text-white hover:bg-neutral-900 rounded-xl transition-colors"
+                className="px-3.5 py-2.5 text-sm font-medium text-neutral-200 hover:text-amber-400 hover:bg-neutral-900 rounded-xl transition-colors"
               >
                 {link.name}
               </a>

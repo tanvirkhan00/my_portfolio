@@ -2,41 +2,46 @@ import React, { useEffect, useRef, useState } from 'react';
 
 export const CustomCursor: React.FC = () => {
   const cursorDotRef = useRef<HTMLDivElement>(null);
-  const cursorFollowerRef = useRef<HTMLDivElement>(null);
-  const orbitRef = useRef<HTMLDivElement>(null);
+  const cursorRingRef = useRef<HTMLDivElement>(null);
+  const trailRef = useRef<HTMLDivElement>(null);
 
   const [isHovered, setIsHovered] = useState(false);
+  const [isClicking, setIsClicking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isPointerDevice, setIsPointerDevice] = useState(false);
 
   useEffect(() => {
-    // Check if device supports fine mouse pointer (not touch-only)
+    // Only enable on desktop pointer devices
     const mediaQuery = window.matchMedia('(pointer: fine)');
     setIsPointerDevice(mediaQuery.matches);
-
     if (!mediaQuery.matches) return;
 
     let mouseX = -100;
     let mouseY = -100;
-    let followerX = -100;
-    let followerY = -100;
-    let rotation = 0;
+    let ringX = -100;
+    let ringY = -100;
+    let trailX = -100;
+    let trailY = -100;
     let animationFrameId: number;
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+
       if (!isVisible) setIsVisible(true);
 
+      // Instant dot positioning
       if (cursorDotRef.current) {
         cursorDotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
       }
     };
 
+    const onMouseDown = () => setIsClicking(true);
+    const onMouseUp = () => setIsClicking(false);
     const onMouseEnter = () => setIsVisible(true);
     const onMouseLeave = () => setIsVisible(false);
 
-    // Track clickable elements for interactive expansion
+    // Dynamic hover detection for interactive elements
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
@@ -46,7 +51,8 @@ export const CustomCursor: React.FC = () => {
         target.closest('textarea') ||
         target.closest('select') ||
         target.closest('[role="button"]') ||
-        target.closest('.interactive-hover')
+        target.closest('article') ||
+        target.closest('.interactive-target')
       ) {
         setIsHovered(true);
       } else {
@@ -55,27 +61,29 @@ export const CustomCursor: React.FC = () => {
     };
 
     window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mouseup', onMouseUp);
     document.addEventListener('mouseenter', onMouseEnter);
     document.addEventListener('mouseleave', onMouseLeave);
     document.addEventListener('mouseover', handleMouseOver);
 
-    // Smooth trailing physics and continuous colorful orbit rotation
+    // Smooth physics loop for trailing ring and subtle glow aura
     const render = () => {
-      // Lerp smoothing
-      const ease = isHovered ? 0.22 : 0.14;
-      followerX += (mouseX - followerX) * ease;
-      followerY += (mouseY - followerY) * ease;
+      // Ring smooth follow
+      const ringSpeed = isHovered ? 0.25 : 0.18;
+      ringX += (mouseX - ringX) * ringSpeed;
+      ringY += (mouseY - ringY) * ringSpeed;
 
-      // Speed up spin when hovered
-      rotation += isHovered ? 3.5 : 1.8;
-      if (rotation >= 360) rotation -= 360;
+      // Trailing soft glow particle follow with slower inertia
+      trailX += (mouseX - trailX) * 0.08;
+      trailY += (mouseY - trailY) * 0.08;
 
-      if (cursorFollowerRef.current) {
-        cursorFollowerRef.current.style.transform = `translate3d(${followerX}px, ${followerY}px, 0)`;
+      if (cursorRingRef.current) {
+        cursorRingRef.current.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
       }
 
-      if (orbitRef.current) {
-        orbitRef.current.style.transform = `rotate(${rotation}deg)`;
+      if (trailRef.current) {
+        trailRef.current.style.transform = `translate3d(${trailX}px, ${trailY}px, 0)`;
       }
 
       animationFrameId = requestAnimationFrame(render);
@@ -85,6 +93,8 @@ export const CustomCursor: React.FC = () => {
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('mouseenter', onMouseEnter);
       document.removeEventListener('mouseleave', onMouseLeave);
       document.removeEventListener('mouseover', handleMouseOver);
@@ -95,73 +105,60 @@ export const CustomCursor: React.FC = () => {
   if (!isPointerDevice) return null;
 
   return (
-    <div className={`pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      
-      {/* Follower with orbiting colorful satellites behind the cursor */}
+    <div
+      className={`pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-300 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      {/* 1. Ambient Trailing Glow behind cursor */}
       <div
-        ref={cursorFollowerRef}
+        ref={trailRef}
         className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 will-change-transform"
       >
         <div
-          ref={orbitRef}
-          className={`relative transition-all duration-300 ease-out flex items-center justify-center ${
+          className={`rounded-full blur-md transition-all duration-500 ease-out ${
             isHovered
-              ? 'w-14 h-14 border border-cyan-400/50 bg-cyan-500/10 shadow-[0_0_25px_rgba(6,182,212,0.4)]'
-              : 'w-10 h-10 border border-amber-400/40 bg-purple-500/5 shadow-[0_0_15px_rgba(245,158,11,0.25)]'
-          } rounded-full backdrop-blur-[1px]`}
+              ? 'w-16 h-16 bg-gradient-to-r from-amber-400/25 via-cyan-400/25 to-fuchsia-400/25 opacity-80'
+              : 'w-10 h-10 bg-cyan-400/15 opacity-40'
+          }`}
+        />
+      </div>
+
+      {/* 2. Magnetic Interactive Outer Ring */}
+      <div
+        ref={cursorRingRef}
+        className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 will-change-transform"
+      >
+        <div
+          className={`rounded-full transition-all duration-300 ease-out flex items-center justify-center ${
+            isHovered
+              ? 'w-12 h-12 border-2 border-amber-400 bg-amber-400/10 shadow-[0_0_20px_rgba(251,191,36,0.35)] scale-110'
+              : isClicking
+              ? 'w-7 h-7 border border-cyan-400/80 bg-cyan-400/20 scale-90'
+              : 'w-8 h-8 border border-neutral-400/40 bg-neutral-900/10 backdrop-blur-[0.5px]'
+          }`}
         >
-          {/* Orbiting Satellite 1: Vibrant Cyan Star */}
-          <span
-            className={`absolute -top-1.5 left-1/2 -translate-x-1/2 rounded-full transition-all duration-300 ${
-              isHovered
-                ? 'w-3 h-3 bg-cyan-400 shadow-[0_0_10px_#22d3ee]'
-                : 'w-2 h-2 bg-cyan-400 shadow-[0_0_8px_#22d3ee]'
-            }`}
-          />
-
-          {/* Orbiting Satellite 2: Neon Fuchsia Star */}
-          <span
-            className={`absolute top-1/2 -right-1.5 -translate-y-1/2 rounded-full transition-all duration-300 ${
-              isHovered
-                ? 'w-2.5 h-2.5 bg-fuchsia-400 shadow-[0_0_10px_#e879f9]'
-                : 'w-1.5 h-1.5 bg-fuchsia-400 shadow-[0_0_6px_#e879f9]'
-            }`}
-          />
-
-          {/* Orbiting Satellite 3: Radiant Amber Star */}
-          <span
-            className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 rounded-full transition-all duration-300 ${
-              isHovered
-                ? 'w-3 h-3 bg-amber-400 shadow-[0_0_10px_#fbbf24]'
-                : 'w-2 h-2 bg-amber-400 shadow-[0_0_8px_#fbbf24]'
-            }`}
-          />
-
-          {/* Orbiting Satellite 4: Emerald Sparkle */}
-          <span
-            className={`absolute top-1/2 -left-1.5 -translate-y-1/2 rounded-full transition-all duration-300 ${
-              isHovered
-                ? 'w-2.5 h-2.5 bg-emerald-400 shadow-[0_0_10px_#34d399]'
-                : 'w-1.5 h-1.5 bg-emerald-400 shadow-[0_0_6px_#34d399]'
-            }`}
-          />
+          {isHovered && (
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping opacity-75" />
+          )}
         </div>
       </div>
 
-      {/* Center Precise Dot */}
+      {/* 3. Center Precision Focal Dot */}
       <div
         ref={cursorDotRef}
         className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 will-change-transform"
       >
         <div
-          className={`rounded-full transition-all duration-200 ${
+          className={`rounded-full transition-all duration-150 ${
             isHovered
-              ? 'w-2 h-2 bg-white shadow-[0_0_12px_#ffffff]'
-              : 'w-2 h-2 bg-gradient-to-r from-amber-400 to-fuchsia-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]'
+              ? 'w-2.5 h-2.5 bg-amber-400 shadow-[0_0_10px_#fbbf24]'
+              : isClicking
+              ? 'w-1.5 h-1.5 bg-cyan-300 shadow-[0_0_8px_#67e8f9]'
+              : 'w-2 h-2 bg-gradient-to-tr from-cyan-400 to-amber-300 shadow-[0_0_6px_rgba(34,211,238,0.7)]'
           }`}
         />
       </div>
-
     </div>
   );
 };

@@ -73,12 +73,12 @@ export const ProjectsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Filter Tabs with colorful active styling */}
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="inline-flex p-1.5 bg-neutral-900/90 border border-neutral-800 rounded-2xl shadow-xl backdrop-blur-md">
+        {/* Filter Tabs with responsive horizontal scrolling on mobile */}
+        <div className="flex items-center justify-between gap-4 overflow-x-auto pb-1 no-scrollbar">
+          <div className="inline-flex p-1.5 bg-neutral-900/90 border border-neutral-800 rounded-2xl shadow-xl backdrop-blur-md shrink-0">
             <button
               onClick={() => setActiveFilter('all')}
-              className={`px-4 py-2 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+              className={`px-3.5 sm:px-4 py-2 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
                 activeFilter === 'all'
                   ? 'bg-neutral-800 text-white shadow-md'
                   : 'text-neutral-400 hover:text-white'
@@ -88,7 +88,7 @@ export const ProjectsSection: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveFilter('shopify')}
-              className={`px-4 py-2 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+              className={`px-3.5 sm:px-4 py-2 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
                 activeFilter === 'shopify'
                   ? 'bg-gradient-to-r from-emerald-400 to-teal-400 text-neutral-950 shadow-md shadow-emerald-500/20'
                   : 'text-neutral-400 hover:text-white'
@@ -98,7 +98,7 @@ export const ProjectsSection: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveFilter('wix')}
-              className={`px-4 py-2 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+              className={`px-3.5 sm:px-4 py-2 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
                 activeFilter === 'wix'
                   ? 'bg-gradient-to-r from-amber-400 to-orange-400 text-neutral-950 shadow-md shadow-amber-500/20'
                   : 'text-neutral-400 hover:text-white'
@@ -108,7 +108,7 @@ export const ProjectsSection: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveFilter('custom')}
-              className={`px-4 py-2 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+              className={`px-3.5 sm:px-4 py-2 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
                 activeFilter === 'custom'
                   ? 'bg-gradient-to-r from-cyan-400 to-indigo-400 text-neutral-950 shadow-md shadow-cyan-500/20'
                   : 'text-neutral-400 hover:text-white'
@@ -116,6 +116,11 @@ export const ProjectsSection: React.FC = () => {
             >
               React / Custom ({counts.custom})
             </button>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-1.5 text-xs font-mono text-neutral-400 shrink-0">
+            <span>Showing:</span>
+            <span className="font-bold text-white">{filteredProjects.length} of {PROJECTS_DATA.length} projects</span>
           </div>
         </div>
 

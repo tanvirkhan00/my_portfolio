@@ -1,24 +1,21 @@
 import React from 'react';
-import { ShoppingBag, Code, Terminal, CheckCircle2, Sparkles } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData';
+import { ShoppingBag, Code, Terminal, CheckCircle2 } from 'lucide-react';
 
 export const StatsBar: React.FC = () => {
-  const highlights = [
+  const stats = [
     {
       icon: ShoppingBag,
       value: "200+",
       label: "Projects Completed",
       sub: "Shopify stores, Wix sites & React apps",
       gradient: "from-amber-400 to-orange-500",
-      borderGlow: "group-hover:border-amber-400/60",
     },
     {
       icon: Code,
-      value: "Betopia Group",
-      label: "Current Company",
-      sub: "Front-End Developer & CMS Expert",
+      value: "2+ Years",
+      label: "Hands-on Experience",
+      sub: "CMS customization & web architecture",
       gradient: "from-cyan-400 to-blue-500",
-      borderGlow: "group-hover:border-cyan-400/60",
     },
     {
       icon: Terminal,
@@ -26,42 +23,37 @@ export const StatsBar: React.FC = () => {
       label: "CMS Specialization",
       sub: "Liquid OS 2.0 & Velo custom code",
       gradient: "from-fuchsia-400 to-pink-500",
-      borderGlow: "group-hover:border-fuchsia-400/60",
     },
     {
       icon: CheckCircle2,
       value: "100%",
       label: "Responsive Precision",
-      sub: "Cross-device tested on iOS & Android",
+      sub: "Mobile-first tested across iOS & Android",
       gradient: "from-emerald-400 to-teal-400",
-      borderGlow: "group-hover:border-emerald-400/60",
     },
   ];
 
   return (
-    <section className="relative border-y border-neutral-800/80 bg-neutral-950/70 py-10 backdrop-blur-md">
+    <section className="relative border-y border-neutral-800/80 bg-neutral-950/60 py-8 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {highlights.map((item, idx) => {
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {stats.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.label}
-                className={`space-y-1.5 border-l-2 border-neutral-800 pl-4 sm:pl-5 transition-all duration-300 group hover:-translate-y-0.5 ${item.borderGlow}`}
+                className="space-y-1 border-l-2 border-neutral-800/80 pl-3.5 sm:pl-4 transition-all duration-300 group hover:border-amber-400"
               >
-                <div className="flex items-center gap-1.5 text-neutral-400 group-hover:text-white transition-colors">
-                  <Icon className="w-4 h-4 text-neutral-400 group-hover:scale-110 transition-transform" />
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400">
-                    Stat 0{idx + 1}
+                <div className="flex items-center gap-1.5 text-neutral-400">
+                  <Icon className="w-3.5 h-3.5 text-neutral-400 group-hover:scale-110 transition-transform" />
+                  <span className={`text-lg sm:text-2xl lg:text-3xl font-extrabold font-mono tracking-tight bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
+                    {item.value}
                   </span>
-                </div>
-                <div className={`text-xl sm:text-2xl lg:text-3xl font-extrabold font-mono tracking-tight bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
-                  {item.value}
                 </div>
                 <div className="text-xs sm:text-sm font-bold text-white">
                   {item.label}
                 </div>
-                <p className="text-[11px] text-neutral-400 leading-snug">
+                <p className="text-[11px] text-neutral-400 leading-snug line-clamp-1">
                   {item.sub}
                 </p>
               </div>

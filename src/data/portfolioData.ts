@@ -21,7 +21,7 @@ export interface ExperienceItem {
   description: string;
   bullets: string[];
   tech: string[];
-  accentColor?: string;
+  current?: boolean;
 }
 
 export interface EducationItem {
@@ -35,10 +35,8 @@ export interface EducationItem {
 export const PERSONAL_INFO = {
   name: "Tanvir Khan",
   shortName: "Tanvir",
-  role: "Front-End Developer & CMS Expert (Wix & Shopify)",
-  subRole: "Specializing in Shopify (Liquid), Wix Studio & Modern React Frontend",
-  currentCompany: "Betopia Group",
-  currentRole: "Front-End Developer & CMS Expert at Betopia Group",
+  role: "Front-End Developer & CMS Expert",
+  specialization: "Wix Studio & Shopify Liquid",
   location: "Dhaka, Bangladesh",
   email: "kmtanvir1111@gmail.com",
   backupEmail: "tanvirkhanbdcalling016@gmail.com",
@@ -49,19 +47,9 @@ export const PERSONAL_INFO = {
   resumeUrl: "/Resume_Tanvir_Khan.pdf",
   avatarUrl: "/images/tanvir.jpg",
   projectsCompleted: "200+",
-  status: "Available for high-impact projects & full-time roles",
-  bioIntro: "Hello! I'm Tanvir Khan, a passionate Front-End Developer & CMS Expert (Wix & Shopify) at Betopia Group. With 200+ projects completed, I specialize in crafting ultra-responsive, visually rich, and conversion-focused websites.",
-  aboutStory: [
-    "I currently work as a Front-End Developer & CMS Expert at Betopia Group. Over my career, I have successfully delivered 200+ web and e-commerce projects for clients worldwide, specializing in custom Shopify Liquid themes, Theme OS 2.0 architectures, and responsive Wix Studio websites.",
-    "My engineering background is grounded in a B.Sc. in Civil Engineering (graduated in 2023), which gave me an obsessive eye for detail, structural problem-solving, and mathematical precision. I brought that analytical rigor into modern web engineering.",
-    "I love building high-performing, interactive web experiences where clean modern code meets colorful, memorable design aesthetics."
-  ],
-  quickStats: [
-    { label: "Projects Completed", value: "200+" },
-    { label: "Current Company", value: "Betopia Group" },
-    { label: "Core Platforms", value: "Shopify & Wix Studio" },
-    { label: "Frontend Stack", value: "React & Tailwind CSS" }
-  ]
+  status: "Available for freelance projects & full-time roles",
+  tagline: "Building high-converting Shopify stores, fluid Wix websites, and responsive modern frontend experiences.",
+  shortBio: "I'm a Front-End Developer and CMS Expert specializing in custom Shopify Liquid themes, Wix Studio, and modern React architectures. With over 200+ projects completed, I combine clean code with pixel-perfect responsive design to help brands succeed online.",
 };
 
 export const PROJECTS_DATA: Project[] = [
@@ -69,17 +57,17 @@ export const PROJECTS_DATA: Project[] = [
     id: 1,
     title: "Simone Prince",
     category: "shopify",
-    categoryLabel: "Shopify",
+    categoryLabel: "Shopify Store",
     img: "/images/ornamets_cover.png",
     liveUrl: "https://bysimoneprince.com/",
-    tagline: "Elegant jewelry & ornaments e-commerce store",
-    description: "Built a custom Shopify store for a luxury jewelry brand with tailored Liquid theme sections, interactive variant selectors, slide-out cart drawer, and custom engraving fields.",
-    role: "Shopify Theme Customizer & Developer",
+    tagline: "Luxury jewelry & fine ornaments e-commerce boutique",
+    description: "Custom Shopify store built for an upscale jewelry brand featuring tailored Liquid theme sections, interactive variant selectors, slide-out cart drawer, and personalized engraving fields.",
+    role: "Shopify Theme Developer",
     tags: ["Shopify", "Liquid", "Theme OS 2.0", "Cart Drawer", "CSS3"],
     highlights: [
       "Custom product page layout with variant swatches",
       "Dynamic slide-out cart drawer with free shipping progress bar",
-      "Liquid modifications for personalized engraving text inputs",
+      "Liquid modifications for personalized engraving inputs",
       "100% mobile-friendly responsive optimization"
     ]
   },
@@ -87,11 +75,11 @@ export const PROJECTS_DATA: Project[] = [
     id: 2,
     title: "E-bike Horizon",
     category: "shopify",
-    categoryLabel: "Shopify",
+    categoryLabel: "Shopify Store",
     img: "/images/Cover1.png",
     liveUrl: "https://ebikehorizon.com/",
     tagline: "Electric bike and urban mobility storefront",
-    description: "Engineered a high-performance Shopify store for electric bikes featuring interactive technical specification tables, battery range comparison guides, and accessory bundling.",
+    description: "High-performance Shopify storefront for electric bikes with technical specification tables, battery comparison matrix, and accessory bundling.",
     role: "Shopify Developer",
     tags: ["Shopify", "Liquid", "Specs Accordion", "Responsive UI"],
     highlights: [
@@ -105,11 +93,11 @@ export const PROJECTS_DATA: Project[] = [
     id: 3,
     title: "Push BY Gigi",
     category: "shopify",
-    categoryLabel: "Shopify",
+    categoryLabel: "Shopify Store",
     img: "/images/pushByGigi.png",
     liveUrl: "https://www.poshbygigi.com/",
     tagline: "Contemporary fashion and apparel boutique",
-    description: "Developed a modern Shopify fashion boutique with dynamic lookbook sections, Instagram feed integration, sticky buy button on mobile, and curated collection filtering.",
+    description: "Modern Shopify fashion boutique featuring dynamic lookbook sections, Instagram feed integration, sticky buy button on mobile, and curated collection filtering.",
     role: "Shopify Developer",
     tags: ["Shopify", "Liquid", "Fashion Apparel", "Sticky Buy"],
     highlights: [
@@ -123,11 +111,11 @@ export const PROJECTS_DATA: Project[] = [
     id: 4,
     title: "Kalanda Steel",
     category: "shopify",
-    categoryLabel: "Shopify",
+    categoryLabel: "Shopify Store",
     img: "/images/kalandulaSteel.png",
     liveUrl: "https://www.kalandulasteel.com/",
     tagline: "Industrial hardware & architectural steel supplies",
-    description: "Customized Shopify store tailored for industrial steel products with bulk pricing tier options, dimension display tables, and custom quote inquiry forms.",
+    description: "Customized Shopify store tailored for industrial steel products with bulk pricing tier options, dimension tables, and custom quote inquiry forms.",
     role: "Shopify Developer",
     tags: ["Shopify", "Liquid", "B2B Catalog", "Custom Form"],
     highlights: [
@@ -141,11 +129,11 @@ export const PROJECTS_DATA: Project[] = [
     id: 5,
     title: "Blush & Babe",
     category: "shopify",
-    categoryLabel: "Shopify",
+    categoryLabel: "Shopify Store",
     img: "/images/Blush & Babe.png",
     liveUrl: "https://www.blushandbabe.com/",
     tagline: "Clean skincare and organic cosmetics store",
-    description: "Built a gentle, aesthetic beauty store on Shopify featuring ingredient breakdown accordions, customer photo reviews, and bundle discount mechanics.",
+    description: "Aesthetic skincare e-commerce website on Shopify featuring ingredient breakdown accordions, customer photo reviews, and bundle discount mechanics.",
     role: "Shopify Developer",
     tags: ["Shopify", "Liquid", "Beauty & Care", "Reviews Integration"],
     highlights: [
@@ -159,11 +147,11 @@ export const PROJECTS_DATA: Project[] = [
     id: 6,
     title: "Mathodology",
     category: "shopify",
-    categoryLabel: "Shopify",
+    categoryLabel: "Shopify Store",
     img: "/images/Mathodology.png",
     liveUrl: "https://thinkmathematics.com/",
     tagline: "Educational math curriculum and teaching materials",
-    description: "Developed a structured educational store on Shopify for teachers and schools with grade-level filtering, digital curriculum downloads, and license options.",
+    description: "Structured educational store on Shopify for teachers and schools with grade-level filtering, digital curriculum downloads, and license options.",
     role: "Shopify Developer",
     tags: ["Shopify", "Digital Downloads", "Catalog Filters", "Liquid"],
     highlights: [
@@ -181,7 +169,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/Listo.png",
     liveUrl: "https://www.listo.works/",
     tagline: "Creative production and media agency portfolio",
-    description: "Created a fluid responsive agency website using Wix Studio and Velo JavaScript. Implemented interactive project showreels, custom animated transitions, and dynamic inquiry forms.",
+    description: "Fluid responsive agency website built with Wix Studio and Velo JavaScript. Implemented interactive project showreels, custom transitions, and dynamic inquiry forms.",
     role: "Wix Studio Developer",
     tags: ["Wix Studio", "Velo Code", "Fluid Responsive", "Animation"],
     highlights: [
@@ -199,7 +187,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/yuriana.png",
     liveUrl: "https://yuriana15.wixsite.com/yurianahome",
     tagline: "Interior architecture and residential styling studio",
-    description: "Crafted a clean interior styling portfolio on Wix with before/after makeover photo sliders, consultation booking calendar, and project galleries.",
+    description: "Clean interior styling portfolio on Wix with before/after makeover sliders, consultation booking calendar, and project galleries.",
     role: "Wix Developer",
     tags: ["Wix Studio", "Bookings", "Interior Design", "Masonry"],
     highlights: [
@@ -217,7 +205,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/CrisTVentures.png",
     liveUrl: "https://www.cristventures.us/",
     tagline: "Venture capital and entrepreneurial advisory portal",
-    description: "Designed and developed an executive corporate website on Wix featuring portfolio company directories, leadership team cards, and pitch deck submission pathways.",
+    description: "Executive corporate website on Wix featuring portfolio company directories, leadership team cards, and pitch deck submission pathways.",
     role: "Wix Developer",
     tags: ["Wix Studio", "Corporate", "Portfolio Directory"],
     highlights: [
@@ -235,7 +223,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/Steak Shop.png",
     liveUrl: "https://www.thesteakshop.co.uk/",
     tagline: "Gourmet butcher & chilled meat delivery store (UK)",
-    description: "Built an e-commerce website on Wix for a premium UK butcher featuring a temperature-controlled shipping date picker, cut-by-weight pricing, and recipes.",
+    description: "E-commerce website on Wix for a premium UK butcher featuring a temperature-controlled shipping date picker, cut-by-weight pricing, and recipes.",
     role: "Wix E-Commerce Developer",
     tags: ["Wix E-Commerce", "Date Picker", "UK Postal System"],
     highlights: [
@@ -253,7 +241,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/footy Friends United.png",
     liveUrl: "https://www.footyfriendsunited.co.uk/",
     tagline: "Grassroots football community club website",
-    description: "Developed a community sports website on Wix with match fixtures, team schedules, training clinic registration forms, and photo gallery archives.",
+    description: "Community sports website on Wix with match fixtures, team schedules, training clinic registration forms, and photo gallery archives.",
     role: "Wix Developer",
     tags: ["Wix", "Sports Club", "Registration Forms"],
     highlights: [
@@ -271,7 +259,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/krist e-commerce.png",
     liveUrl: "https://kristecommerce.netlify.app/",
     tagline: "Full-stack React & Firebase apparel web app",
-    description: "Built a modern Single Page Application (SPA) e-commerce store with React, Tailwind CSS, Firebase authentication, dynamic REST API product loading, and cart state management.",
+    description: "Single Page Application (SPA) e-commerce store with React, Tailwind CSS, Firebase authentication, dynamic REST API product loading, and cart state management.",
     role: "Frontend Engineer (Personal Project)",
     tags: ["React.js", "Firebase Auth", "REST API", "Tailwind CSS"],
     highlights: [
@@ -289,7 +277,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/Exclusive_Ecommerce.png",
     liveUrl: "https://exclusive-ecommerce-project.netlify.app/",
     tagline: "Electronics & lifestyle shopping application",
-    description: "Developed a high-performance e-commerce prototype from scratch using React and modern CSS. Implemented a flash-sale countdown timer, product wishlist, and responsive cart.",
+    description: "High-performance e-commerce prototype from scratch using React and modern CSS. Implemented flash-sale countdown timer, product wishlist, and responsive cart.",
     role: "Frontend Engineer (Personal Project)",
     tags: ["React.js", "Tailwind CSS", "Flash Sale Timer", "Wishlist"],
     highlights: [
@@ -307,7 +295,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/WoddyCover.png",
     liveUrl: "https://woodyagency.netlify.app/",
     tagline: "Minimalist wooden furniture showcase",
-    description: "A clean, minimalist furniture landing page built with HTML5, Tailwind CSS, and vanilla JavaScript. Features smooth scroll animations and refined architectural spacing.",
+    description: "Clean, minimalist furniture landing page built with HTML5, Tailwind CSS, and vanilla JavaScript. Features smooth scroll animations and refined architectural spacing.",
     role: "Frontend Developer (Personal Project)",
     tags: ["HTML5", "Tailwind CSS", "JavaScript", "Minimalism"],
     highlights: [
@@ -325,7 +313,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/small-house-design-ideas.jpg",
     liveUrl: "https://internohome.netlify.app/",
     tagline: "Modern interior design & architecture website",
-    description: "Created a responsive agency website for interior designers using semantic HTML, Tailwind CSS, and JavaScript. Showcases past renovation projects in a clean photo grid.",
+    description: "Responsive agency website for interior designers using semantic HTML, Tailwind CSS, and JavaScript. Showcases past renovation projects in a clean photo grid.",
     role: "Frontend Developer (Personal Project)",
     tags: ["Tailwind CSS", "JavaScript", "Grid Layout", "Interior"],
     highlights: [
@@ -343,7 +331,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/yummyFastFoods.png",
     liveUrl: "https://yummyfastfoods.netlify.app/",
     tagline: "Fast food restaurant menu & ordering interface",
-    description: "Designed a responsive digital food menu and ordering interface with instant food category switching, modifier options, and interactive cart calculations.",
+    description: "Responsive digital food menu and ordering interface with instant food category switching, modifier options, and interactive cart calculations.",
     role: "Frontend Developer (Personal Project)",
     tags: ["HTML5", "CSS3", "JavaScript", "Food Menu"],
     highlights: [
@@ -361,7 +349,7 @@ export const PROJECTS_DATA: Project[] = [
     img: "/images/yummyBurger.png",
     liveUrl: "https://yummysnacks.netlify.app/",
     tagline: "Artisan burger & street food website",
-    description: "Built a high-contrast culinary showcase website with HTML5, CSS3, and Tailwind CSS. Highlights special combo offers, customer ratings, and location directions.",
+    description: "High-contrast culinary showcase website with HTML5, CSS3, and Tailwind CSS. Highlights special combo offers, customer ratings, and location directions.",
     role: "Frontend Developer (Personal Project)",
     tags: ["Tailwind CSS", "JavaScript", "Street Food", "Responsive"],
     highlights: [
@@ -376,36 +364,33 @@ export const PROJECTS_DATA: Project[] = [
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     period: "2025 - Present",
-    role: "Front-End Developer & CMS Expert (Wix & Shopify)",
+    role: "Front-End Developer & CMS Expert",
     company: "Betopia Group",
     location: "Dhaka, Bangladesh",
     type: "Full-Time",
-    accentColor: "from-cyan-500 via-indigo-500 to-fuchsia-500",
-    description: "Lead CMS and Front-End engineering across international client portfolios, building high-conversion Shopify Liquid themes, dynamic Wix Studio architectures, and custom interactive web components.",
+    current: true,
+    description: "Leading CMS development and front-end engineering for client storefronts. Designing and developing high-converting Shopify Liquid themes and responsive Wix Studio web solutions.",
     bullets: [
-      "Engineered and customized 50+ commercial Shopify stores utilizing Liquid, JSON templates, and Theme OS 2.0 modular blocks.",
-      "Architected advanced fluid-responsive websites using Wix Studio and Velo (JavaScript), integrating CMS databases and automated workflows.",
-      "Solved complex responsive layout challenges, mobile checkout friction, and cross-browser rendering bugs.",
-      "Integrated third-party e-commerce APIs, upsell slide drawers, and payment gateways for global merchants.",
-      "Collaborated with product teams and clients to drive 30%+ improvements in mobile speed and conversion metrics."
+      "Built and customized 50+ commercial Shopify stores with Liquid, Theme OS 2.0 sections, and custom cart mechanics.",
+      "Engineered fluid-responsive websites using Wix Studio and Velo (JavaScript) with custom database collections.",
+      "Resolved complex responsive layout bugs, mobile checkout issues, and cross-browser rendering inconsistencies.",
+      "Integrated third-party apps for reviews, upsells, cart drawers, and payment gateways with zero site bloat."
     ],
-    tech: ["Shopify Liquid", "Theme OS 2.0", "Wix Studio", "Velo JS", "React.js", "Tailwind CSS", "JavaScript (ES6+)"]
+    tech: ["Shopify Liquid", "Theme OS 2.0", "Wix Studio", "Velo JS", "React.js", "Tailwind CSS", "JavaScript"]
   },
   {
     period: "2023 - 2024",
-    role: "Front-End Development Trainee & Project Builder",
+    role: "Front-End Development Trainee",
     company: "Wit-Institute",
     location: "Dhaka, Bangladesh",
-    type: "Specialized Certification",
-    accentColor: "from-amber-400 via-rose-500 to-purple-600",
-    description: "Completed an intensive, rigorous front-end engineering program with hands-on development of production-grade React Single Page Applications, component systems, and cloud deployments.",
+    type: "Certification",
+    description: "Completed intensive frontend engineering training, building production-grade Single Page Applications using React.js, Tailwind CSS, and cloud backends.",
     bullets: [
-      "Architected multiple full-featured web applications using React, Redux Toolkit, and modern JavaScript.",
-      "Mastered component design patterns, custom hooks, asynchronous REST API integration, and client-side routing.",
-      "Implemented Firebase authentication, real-time database, and cloud hosting for dynamic web apps.",
-      "Engineered mobile-first responsive interfaces adhering to WCAG accessibility standards."
+      "Built full-stack React applications with component state management, hooks, and REST APIs.",
+      "Implemented Firebase authentication, real-time database, and cloud hosting.",
+      "Applied strict mobile-first design principles using modern CSS and Tailwind."
     ],
-    tech: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "Bootstrap", "Redux", "Firebase", "Git & GitHub"]
+    tech: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "Redux", "Firebase", "Git"]
   }
 ];
 
@@ -449,7 +434,7 @@ export const TECH_SKILLS = [
     ]
   },
   {
-    category: "Tools, Workflow & Cloud",
+    category: "Tools & Workflow",
     accent: "from-fuchsia-400 to-purple-600",
     skills: [
       { name: "Git & GitHub Version Control", level: "Advanced", desc: "Branching, PRs, version control, repository management" },
